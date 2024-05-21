@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horoscope Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Your Horoscope</h1>
+        <form method="post">
+            <label for="month">Enter the month (e.g., January):</label>
+            <input type="text" id="month" name="month" required><br>
+            <label for="day">Enter the day (e.g., 1):</label>
+            <input type="text" id="day" name="day" required><br>
+            <label for="year">Enter the year (e.g., 2024):</label>
+            <input type="text" id="year" name="year" required><br>
+            <label for="horoscope">Enter your horoscope:</label>
+            <input type="text" id="horoscope" name="horoscope" required><br>
+            <button type="submit">Get Horoscope</button>
+        </form>
+        {% if horoscope_text %}
+            <div class="result">
+                <h2>Your Horoscope:</h2>
+                <p>{{ horoscope_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
